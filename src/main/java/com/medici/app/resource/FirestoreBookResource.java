@@ -72,6 +72,7 @@ public class FirestoreBookResource {
 
 			ApiFuture<QuerySnapshot> results = this.firestore.collection(BOOKS).get();
 			results.get().getDocuments().stream().forEach(action -> {
+				logger.info("findAll->"+action.getData());
 				payload.add(action.getData());
 			});
 
